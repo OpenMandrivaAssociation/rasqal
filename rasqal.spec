@@ -14,7 +14,6 @@ Source:		http://librdf.org/dist/source/%{name}-%{version}.tar.bz2
 URL:		http://librdf.org/rasqal/
 License:	LGPL
 Group:		Databases
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	raptor-devel
 
 %description
