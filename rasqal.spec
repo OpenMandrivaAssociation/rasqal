@@ -1,5 +1,5 @@
 %define name	rasqal
-%define version 0.9.14
+%define version 0.9.15
 %define release %mkrel 1
 
 %define major	0
@@ -10,7 +10,7 @@ Summary: 	RDF querying library
 Version: 	%{version}
 Release: 	%{release}
 
-Source:		http://librdf.org/dist/source/%{name}-%{version}.tar.bz2
+Source:		http://librdf.org/dist/source/%{name}-%{version}.tar.gz
 URL:		http://librdf.org/rasqal/
 License:	LGPL
 Group:		Databases
