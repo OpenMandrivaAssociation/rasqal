@@ -4,6 +4,7 @@
 
 %define major	1
 %define libname %mklibname %name %major
+%define develname %mklibname -d %name
 
 Name: 	 	%{name}
 Summary: 	RDF querying library
@@ -33,15 +34,15 @@ Obsoletes:	%{mklibname rasqal 0} >= 0.9.16
 %description -n %{libname}
 Dynamic libraries from %name.
 
-%package -n 	%{libname}-devel
+%package -n 	%{develname}
 Summary: 	Header files and static libraries from %name
 Group: 		Development/C
 Requires: 	%{libname} >= %{version}
-Provides: 	lib%{name}-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release} 
-Obsoletes: 	%name-devel
+Obsoletes: 	%name-devel < %{version}-%{release}
+Obsoletes:	%mklibname -d %name 0
 
-%description -n %{libname}-devel
+%description -n %{develname}
 Libraries and includes files for developing programs based on %name.
 
 %prep
@@ -76,7 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %{_libdir}/*.so.%{major}*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %{_bindir}/%name-config
 %multiarch %{multiarch_bindir}/%name-config
