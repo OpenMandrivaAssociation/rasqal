@@ -1,8 +1,8 @@
 %define name	rasqal
 %define version 0.9.16
-%define release %mkrel 1
+%define release %mkrel 2
 
-%define major	0
+%define major	1
 %define libname %mklibname %name %major
 
 Name: 	 	%{name}
@@ -28,6 +28,7 @@ BSDs, OSX, cygwin) win32 and others.
 %package -n 	%{libname}
 Summary:        Dynamic libraries from %name
 Group:          System/Libraries
+Obsoletes:	%{mklibname rasqal 0} >= 0.9.16
 
 %description -n %{libname}
 Dynamic libraries from %name.
@@ -52,7 +53,7 @@ Libraries and includes files for developing programs based on %name.
 										
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall
+%makeinstall_std
 %multiarch_binaries %buildroot/%_bindir/%name-config
 
 %clean
@@ -73,7 +74,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %{libname}
 %defattr(-,root,root)
-%{_libdir}/*.so.*
+%{_libdir}/*.so.%{major}*
 
 %files -n %{libname}-devel
 %defattr(-,root,root)
@@ -87,5 +88,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/rasqal*
 %{_mandir}/man3/lib*
 %{_datadir}/gtk-doc/html/%name
-
-
