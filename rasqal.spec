@@ -1,6 +1,6 @@
 %define name	rasqal
 %define version 0.9.17
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define major	2
 %define libname %mklibname %name %major
