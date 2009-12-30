@@ -1,8 +1,8 @@
 %define name	rasqal
-%define version 0.9.16
-%define release %mkrel 3
+%define version 0.9.17
+%define release %mkrel 1
 
-%define major	1
+%define major	2
 %define libname %mklibname %name %major
 %define develname %mklibname -d %name
 
@@ -17,6 +17,9 @@ License:	LGPL
 Group:		Databases
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	raptor-devel
+BuildRequires:	libcares-devel
+BuildRequires:	libgnutls-devel
+BuildRequires:	libmpfr-devel
 
 %description
 Rasqal handles Resource Description Framework (RDF) query syntaxes, query
