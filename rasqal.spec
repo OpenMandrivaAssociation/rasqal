@@ -17,7 +17,7 @@ License:	LGPL
 Group:		Databases
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	raptor-devel
-BuildRequires:	libcares-devel
+BuildRequires:	c-ares-devel
 BuildRequires:	libgnutls-devel
 BuildRequires:	libmpfr-devel
 
