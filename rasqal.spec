@@ -1,5 +1,5 @@
 %define name	rasqal
-%define version 0.9.20
+%define version 0.9.21
 %define release %mkrel 1
 
 %define major	2
