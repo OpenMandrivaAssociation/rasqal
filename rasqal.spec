@@ -1,8 +1,8 @@
 %define name	rasqal
-%define version 0.9.21
+%define version 0.9.24
 %define release %mkrel 1
 
-%define major	2
+%define major	3
 %define libname %mklibname %name %major
 %define develname %mklibname -d %name
 
@@ -16,9 +16,7 @@ URL:		http://librdf.org/rasqal/
 License:	LGPL
 Group:		Databases
 BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:	raptor-devel
-BuildRequires:	c-ares-devel
-BuildRequires:	libgnutls-devel
+BuildRequires:	raptor2-devel >= 2.0.0
 BuildRequires:	libmpfr-devel
 
 %description
@@ -52,7 +50,7 @@ Libraries and includes files for developing programs based on %name.
 %setup -q
 
 %build
-%configure2_5x
+%configure2_5x --disable-static
 %make
 										
 %install
@@ -86,7 +84,6 @@ rm -rf $RPM_BUILD_ROOT
 %multiarch %{multiarch_bindir}/%name-config
 %{_includedir}/*
 %{_libdir}/*.so
-%{_libdir}/*.a
 %{_libdir}/*.la
 %{_libdir}/pkgconfig/*
 %{_mandir}/man1/rasqal*
