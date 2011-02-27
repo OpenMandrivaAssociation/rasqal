@@ -1,5 +1,5 @@
 %define name	rasqal
-%define version 0.9.24
+%define version 0.9.25
 %define release %mkrel 1
 
 %define major	3
@@ -12,10 +12,12 @@ Version: 	%{version}
 Release: 	%{release}
 
 Source:		http://librdf.org/dist/source/%{name}-%{version}.tar.gz
+Patch0:		rasqal-0.9.25-linkm.patch
 URL:		http://librdf.org/rasqal/
 License:	LGPL
 Group:		Databases
 BuildRoot:	%{_tmppath}/%{name}-buildroot
+BuildRequires:	raptor2
 BuildRequires:	raptor2-devel >= 2.0.0
 BuildRequires:	libmpfr-devel
 
@@ -48,6 +50,7 @@ Libraries and includes files for developing programs based on %name.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure2_5x --disable-static
@@ -60,6 +63,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%check
+make check
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
