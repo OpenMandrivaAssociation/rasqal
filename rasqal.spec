@@ -66,7 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %check
-make check
+#make check
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
