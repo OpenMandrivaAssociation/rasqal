@@ -1,6 +1,6 @@
 %define name	rasqal
 %define version 0.9.25
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define major	3
 %define libname %mklibname %name %major
@@ -59,6 +59,7 @@ Libraries and includes files for developing programs based on %name.
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
+
 %multiarch_binaries %buildroot/%_bindir/%name-config
 
 %clean
@@ -87,7 +88,7 @@ make check
 %files -n %{develname}
 %defattr(-,root,root)
 %{_bindir}/%name-config
-%multiarch %{multiarch_bindir}/%name-config
+%{multiarch_bindir}/%name-config
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/*.la
