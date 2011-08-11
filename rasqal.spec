@@ -1,6 +1,6 @@
 %define name	rasqal
-%define version 0.9.25
-%define release %mkrel 2
+%define version 0.9.26
+%define release %mkrel 1
 
 %define major	3
 %define libname %mklibname %name %major
@@ -12,7 +12,7 @@ Version: 	%{version}
 Release: 	%{release}
 
 Source:		http://librdf.org/dist/source/%{name}-%{version}.tar.gz
-Patch0:		rasqal-0.9.25-linkm.patch
+Patch0:		rasqal-0.9.26-linkm.patch
 URL:		http://librdf.org/rasqal/
 License:	LGPL
 Group:		Databases
