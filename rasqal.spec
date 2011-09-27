@@ -1,24 +1,18 @@
-%define name	rasqal
-%define version 0.9.26
-%define release %mkrel 1
-
 %define major	3
-%define libname %mklibname %name %major
-%define develname %mklibname -d %name
+%define libname %mklibname %{name} %{major}
+%define develname %mklibname -d %{name}
 
-Name: 	 	%{name}
+Name: 	 	rasqal
 Summary: 	RDF querying library
-Version: 	%{version}
-Release: 	%{release}
-
-Source:		http://librdf.org/dist/source/%{name}-%{version}.tar.gz
-Patch0:		rasqal-0.9.26-linkm.patch
-URL:		http://librdf.org/rasqal/
-License:	LGPL
 Group:		Databases
-BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:	raptor2
-BuildRequires:	raptor2-devel >= 2.0.0
+Version: 	0.9.27
+Release: 	1
+License:		LGPL
+URL:		http://librdf.org/rasqal/
+Source0:		http://librdf.org/dist/source/%{name}-%{version}.tar.gz
+Patch0:		rasqal-0.9.27-linkm.patch
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	raptor2-devel > 2.0.4-2
 BuildRequires:	libmpfr-devel
 
 %description
@@ -30,23 +24,23 @@ a portable library working across many POSIX systems (Unix, GNU/Linux,
 BSDs, OSX, cygwin) win32 and others.
 
 %package -n 	%{libname}
-Summary:        Dynamic libraries from %name
+Summary:        Dynamic libraries from %{name}
 Group:          System/Libraries
 Obsoletes:	%{mklibname rasqal 0} >= 0.9.16
 
 %description -n %{libname}
-Dynamic libraries from %name.
+Dynamic libraries from %{name}.
 
 %package -n 	%{develname}
-Summary: 	Header files and static libraries from %name
+Summary: 	Header files and static libraries from %{name}
 Group: 		Development/C
 Requires: 	%{libname} >= %{version}
 Provides:	%{name}-devel = %{version}-%{release} 
-Obsoletes: 	%name-devel < %{version}-%{release}
-Obsoletes:	%mklibname -d %name 0
+Obsoletes: 	%{name}-devel < %{version}-%{release}
+Obsoletes:	%{mklibname -d %{name} 0}
 
 %description -n %{develname}
-Libraries and includes files for developing programs based on %name.
+Libraries and includes files for developing programs based on %{name}.
 
 %prep
 %setup -q
@@ -57,13 +51,16 @@ Libraries and includes files for developing programs based on %name.
 %make
 										
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
 
-%multiarch_binaries %buildroot/%_bindir/%name-config
+%multiarch_binaries %{buildroot}%{_bindir}/%{name}-config
+
+# Zé: clean .la files
+rm -f %{buildroot}%{_libdir}/*.la
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %check
 #make check
@@ -87,12 +84,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %{develname}
 %defattr(-,root,root)
-%{_bindir}/%name-config
-%{multiarch_bindir}/%name-config
+%{_bindir}/%{name}-config
+%{multiarch_bindir}/%{name}-config
 %{_includedir}/*
 %{_libdir}/*.so
-%{_libdir}/*.la
 %{_libdir}/pkgconfig/*
 %{_mandir}/man1/rasqal*
 %{_mandir}/man3/lib*
-%{_datadir}/gtk-doc/html/%name
+%{_datadir}/gtk-doc/html/%{name}
