@@ -5,13 +5,12 @@
 Name: 	 	rasqal
 Summary: 	RDF querying library
 Group:		Databases
-Version: 	0.9.27
+Version: 	0.9.28
 Release: 	1
-License:		LGPL
+License:	LGPL
 URL:		http://librdf.org/rasqal/
-Source0:		http://librdf.org/dist/source/%{name}-%{version}.tar.gz
-Patch0:		rasqal-0.9.27-linkm.patch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Source0:	http://download.librdf.org/source/%{name}-%{version}.tar.gz
+Patch0:		rasqal-0.9.28-linkm.patch
 BuildRequires:	raptor2-devel > 2.0.4-2
 BuildRequires:	libmpfr-devel
 
@@ -44,7 +43,7 @@ Libraries and includes files for developing programs based on %{name}.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch0 -p1 -b .linkm~
 
 %build
 %configure2_5x --disable-static
