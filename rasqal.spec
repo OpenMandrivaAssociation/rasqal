@@ -5,7 +5,7 @@
 Name: 	 	rasqal
 Summary: 	RDF querying library
 Group:		Databases
-Version: 	0.9.28
+Version: 	0.9.29
 Release: 	1
 License:	LGPL
 URL:		http://librdf.org/rasqal/
@@ -58,31 +58,18 @@ rm -rf %{buildroot}
 # Zé: clean .la files
 rm -f %{buildroot}%{_libdir}/*.la
 
-%clean
-rm -rf %{buildroot}
-
 %check
 #make check
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
 %files
-%defattr(-,root,root)
 %doc AUTHORS COPYING* ChangeLog LICENSE* NEWS* NOTICE README*
 %{_bindir}/roqet
 %{_mandir}/man1/roqet*
 
 %files -n %{libname}
-%defattr(-,root,root)
 %{_libdir}/*.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %{_bindir}/%{name}-config
 %{multiarch_bindir}/%{name}-config
 %{_includedir}/*
