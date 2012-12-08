@@ -78,3 +78,104 @@ rm -f %{buildroot}%{_libdir}/*.la
 %{_mandir}/man1/rasqal*
 %{_mandir}/man3/lib*
 %{_datadir}/gtk-doc/html/%{name}
+
+
+%changelog
+* Sat May 19 2012 Alexander Khrukin <akhrukin@mandriva.org> 0.9.29-1
++ Revision: 799701
+- version update 0.9.29
+
+* Sun Mar 04 2012 Bernhard Rosenkraenzer <bero@bero.eu> 0.9.28-1
++ Revision: 782083
+- Update to 0.9.28
+- Remove some obsolete rpm constructs
+
+* Tue Sep 27 2011 Zé <ze@mandriva.org> 0.9.27-1
++ Revision: 701519
+- version 0.9.27
+- clean useless macros
+- avoid use of both buildroot variables
+- clean .la files
+- remove raptor2 from buildrequires since isnt needed
+- require raptor2 bigger than 2.0.4-1 that already requires gtk-doc
+- rediff patch0
+- clean patch
+- version 0.9.27
+- clean useless macros
+- avoid use of both buildroot variables
+- clean .la files
+- remove raptor2 from buildrequires since isnt needed
+- require raptor2 bigger than 2.0.4-1 that already requires gtk-doc
+- rediff patch0
+
+* Thu Aug 11 2011 Funda Wang <fwang@mandriva.org> 0.9.26-1
++ Revision: 693995
+- new version 0.9.26
+
+* Mon May 02 2011 Funda Wang <fwang@mandriva.org> 0.9.25-2
++ Revision: 662314
+- check do no work due to perl problems
+- New version 0.9.25
+
+  + Oden Eriksson <oeriksson@mandriva.com>
+    - multiarch fixes
+
+* Wed Feb 09 2011 Funda Wang <fwang@mandriva.org> 0.9.24-1
++ Revision: 636981
+- new version 0.9.24
+
+* Sun Dec 05 2010 Funda Wang <fwang@mandriva.org> 0.9.21-1mdv2011.0
++ Revision: 609735
+- update to new version 0.9.21
+
+* Mon Aug 23 2010 Funda Wang <fwang@mandriva.org> 0.9.20-1mdv2011.0
++ Revision: 572096
+- update to new version 0.9.20
+
+* Mon Feb 15 2010 Frederik Himpe <fhimpe@mandriva.org> 0.9.19-1mdv2010.1
++ Revision: 506381
+- update to new version 0.9.19
+
+* Mon Feb 15 2010 Funda Wang <fwang@mandriva.org> 0.9.18-1mdv2010.1
++ Revision: 506060
+- new version 0.9.18
+
+* Wed Dec 30 2009 Frederik Himpe <fhimpe@mandriva.org> 0.9.17-2mdv2010.1
++ Revision: 484179
+- Update to new version 0.9.17 (new major)
+- Fix BuildRequires
+
+* Thu Sep 03 2009 Christophe Fergeau <cfergeau@mandriva.com> 0.9.16-3mdv2010.0
++ Revision: 426876
+- rebuild
+
+* Thu Jul 10 2008 Funda Wang <fwang@mandriva.org> 0.9.16-2mdv2009.0
++ Revision: 233242
+- new devel package policy
+- fix libmajor
+
+* Thu Jul 10 2008 Austin Acton <austin@mandriva.org> 0.9.16-1mdv2009.0
++ Revision: 233216
+- new version
+
+* Wed Jun 18 2008 Thierry Vignaud <tv@mandriva.org> 0.9.15-2mdv2009.0
++ Revision: 225311
+- rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+  + Olivier Blin <blino@mandriva.org>
+    - restore BuildRoot
+
+* Fri Dec 28 2007 Austin Acton <austin@mandriva.org> 0.9.15-1mdv2008.1
++ Revision: 138739
+- new version
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Thu May 10 2007 Austin Acton <austin@mandriva.org> 0.9.14-1mdv2008.0
++ Revision: 25990
+- new version
+
