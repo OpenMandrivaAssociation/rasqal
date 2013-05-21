@@ -1,6 +1,6 @@
---- rasqal-0.9.28/src/Makefile.am.linkm~	2011-11-16 04:16:05.000000000 +0100
-+++ rasqal-0.9.28/src/Makefile.am	2012-03-04 17:45:41.764207572 +0100
-@@ -168,7 +168,7 @@ endif
+--- rasqal-0.9.30/src/Makefile.am.linkm~	2012-06-26 02:54:53.000000000 +0200
++++ rasqal-0.9.30/src/Makefile.am	2013-05-21 02:41:20.777222347 +0200
+@@ -160,7 +160,7 @@ endif
  
  
  librasqal_la_LDFLAGS = -version-info @RASQAL_LIBTOOL_VERSION@
@@ -9,14 +9,14 @@
  librasqal_la_DEPENDENCIES = @LTLIBOBJS@ @RASQAL_INTERNAL_LIBS@
  
  
---- rasqal-0.9.28/src/Makefile.in.linkm~	2011-11-17 09:03:41.000000000 +0100
-+++ rasqal-0.9.28/src/Makefile.in	2012-03-04 17:45:47.796207915 +0100
-@@ -618,7 +618,7 @@ librasqal_la_SOURCES = rasqal_algebra.c
- 	$(am__append_7) $(am__append_8) $(am__append_10)
- nodist_librasqal_la_SOURCES = $(am__append_9)
+--- rasqal-0.9.30/src/Makefile.in.linkm~	2013-05-21 02:41:20.778222334 +0200
++++ rasqal-0.9.30/src/Makefile.in	2013-05-21 02:41:42.134955338 +0200
+@@ -622,7 +622,7 @@ librasqal_la_SOURCES = rasqal_algebra.c
+ 	$(am__append_5) $(am__append_6) $(am__append_8)
+ nodist_librasqal_la_SOURCES = $(am__append_7)
  librasqal_la_LDFLAGS = -version-info @RASQAL_LIBTOOL_VERSION@
 -librasqal_la_LIBADD = @LTLIBOBJS@ @RASQAL_INTERNAL_LIBS@ @RASQAL_EXTERNAL_LIBS@ $(MEM_LIBS)
 +librasqal_la_LIBADD = @LTLIBOBJS@ @RASQAL_INTERNAL_LIBS@ @RASQAL_EXTERNAL_LIBS@ $(MEM_LIBS) -lm
  librasqal_la_DEPENDENCIES = @LTLIBOBJS@ @RASQAL_INTERNAL_LIBS@
  EXTRA_DIST = \
- rdql_lexer.l rdql_parser.y \
+ sparql_lexer.l sparql_parser.y \
