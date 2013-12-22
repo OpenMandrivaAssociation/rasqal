@@ -9,8 +9,8 @@
 Name: 	 	rasqal
 Summary: 	RDF querying library
 Group:		Databases
-Version: 	0.9.30
-Release: 	5
+Version: 	0.9.31
+Release: 	1
 License:	LGPL
 URL:		http://librdf.org/rasqal/
 Source0:	http://download.librdf.org/source/%{name}-%{version}.tar.gz
