@@ -1,24 +1,24 @@
 %define major	3
 %define libname %mklibname %{name} %{major}
-%define develname %mklibname -d %{name}
+%define devname %mklibname -d %{name}
 # Disabled by default because dawg-triple-pattern fails when running
 # inside ABF (works fine locally though).
 # Please run a --with-testsuite build when modifying the package.
 %bcond_with testsuite
 
-Name: 	 	rasqal
-Summary: 	RDF querying library
+Summary:	RDF querying library
+Name:		rasqal
 Group:		Databases
-Version: 	0.9.31
-Release: 	1
-License:	LGPL
-URL:		http://librdf.org/rasqal/
+Version:	0.9.32
+Release:	1
+License:	LGPLv2
+Url:		http://librdf.org/rasqal/
 Source0:	http://download.librdf.org/source/%{name}-%{version}.tar.gz
 Patch0:		rasqal-0.9.28-linkm.patch
-BuildRequires:	pkgconfig(raptor2) >= 2.0.9
 # For the "rapper" tool
 BuildRequires:	raptor2 >= 2.0.9
 BuildRequires:	mpfr-devel
+BuildRequires:	pkgconfig(raptor2) >= 2.0.9
 
 %description
 Rasqal handles Resource Description Framework (RDF) query syntaxes, query
@@ -29,41 +29,37 @@ a portable library working across many POSIX systems (Unix, GNU/Linux,
 BSDs, OSX, cygwin) win32 and others.
 
 %package -n 	%{libname}
-Summary:        Dynamic libraries from %{name}
-Group:          System/Libraries
-Obsoletes:	%{mklibname rasqal 0} >= 0.9.16
+Summary:	Dynamic libraries from %{name}
+Group:		System/Libraries
 
 %description -n %{libname}
 Dynamic libraries from %{name}.
 
-%package -n 	%{develname}
-Summary: 	Header files and static libraries from %{name}
-Group: 		Development/C
-Requires: 	%{libname} >= %{version}
+%package -n 	%{devname}
+Summary:	Header files and development libraries from %{name}
+Group:		Development/C
+Requires:	%{libname} >= %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release} 
-Obsoletes: 	%{name}-devel < %{version}-%{release}
-Obsoletes:	%{mklibname -d %{name} 0}
 
-%description -n %{develname}
+%description -n %{devname}
 Libraries and includes files for developing programs based on %{name}.
 
 %track
-prog %name = {
+prog %{name} = {
 	url = http://librdf.org/rasqal/
 	regex = "Latest version: (__VER__) \("
-	version = %version
+	version = %{version}
 }
 
 %prep
 %setup -q
-%patch0 -p1 -b .linkm~
+%apply_patches
 
 %build
 %configure2_5x --disable-static
 %make
 										
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 %multiarch_binaries %{buildroot}%{_bindir}/%{name}-config
@@ -79,9 +75,9 @@ make check
 %{_mandir}/man1/roqet*
 
 %files -n %{libname}
-%{_libdir}/*.so.%{major}*
+%{_libdir}/librasqal.so.%{major}*
 
-%files -n %{develname}
+%files -n %{devname}
 %{_bindir}/%{name}-config
 %{multiarch_bindir}/%{name}-config
 %{_includedir}/*
@@ -90,3 +86,4 @@ make check
 %{_mandir}/man1/rasqal*
 %{_mandir}/man3/lib*
 %doc %{_datadir}/gtk-doc/html/%{name}
+
