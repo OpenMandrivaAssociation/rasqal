@@ -9,12 +9,13 @@
 Summary:	RDF querying library
 Name:		rasqal
 Group:		Databases
-Version:	0.9.32
-Release:	7
+Version:	0.9.33
+Release:	1
 License:	LGPLv2
 Url:		http://librdf.org/rasqal/
 Source0:	http://download.librdf.org/source/%{name}-%{version}.tar.gz
 Patch0:		rasqal-0.9.28-linkm.patch
+Patch1:		rasqal-0.9.33-clang-bug-33589.patch
 # For the "rapper" tool
 BuildRequires:	raptor2 >= 2.0.9
 BuildRequires:	mpfr-devel
@@ -62,8 +63,6 @@ prog %{name} = {
 %install
 %makeinstall_std
 
-%multiarch_binaries %{buildroot}%{_bindir}/%{name}-config
-
 %if %{with testsuite}
 %check
 make check
@@ -79,7 +78,6 @@ make check
 
 %files -n %{devname}
 %{_bindir}/%{name}-config
-%{multiarch_bindir}/%{name}-config
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*

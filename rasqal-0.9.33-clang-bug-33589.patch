@@ -1,0 +1,11 @@
+--- rasqal-0.9.33/src/sparql_parser.c.omv~	2017-06-26 02:20:10.480431511 +0200
++++ rasqal-0.9.33/src/sparql_parser.c	2017-06-26 02:22:15.557511458 +0200
+@@ -518,7 +518,7 @@ typedef short int yytype_int16;
+ # define YYUSE(E) /* empty */
+ #endif
+ 
+-#if defined __GNUC__ && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
++#if !defined(__clang__) && defined __GNUC__ && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
+ /* Suppress an incorrect diagnostic about yylval being uninitialized.  */
+ # define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN \
+     _Pragma ("GCC diagnostic push") \

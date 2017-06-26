@@ -1,6 +1,6 @@
---- rasqal-0.9.31/src/Makefile.am.linkm~	2013-12-22 21:42:39.988162882 +0100
-+++ rasqal-0.9.31/src/Makefile.am	2013-12-22 21:43:11.974829968 +0100
-@@ -151,7 +151,7 @@ rasqal_algebra.c: git-version.h
+--- rasqal-0.9.33/src/Makefile.am.0000~	2014-10-19 21:14:11.000000000 +0200
++++ rasqal-0.9.33/src/Makefile.am	2017-06-26 01:30:02.022957273 +0200
+@@ -158,7 +158,7 @@ rasqal_algebra.c: git-version.h
  endif
  
  librasqal_la_LDFLAGS = -version-info @RASQAL_LIBTOOL_VERSION@
@@ -9,14 +9,14 @@
  librasqal_la_DEPENDENCIES = @LTLIBOBJS@ @RASQAL_INTERNAL_LIBS@
  
  AM_CFLAGS += -DSV_CONFIG -I$(top_srcdir)/libsv
---- rasqal-0.9.31/src/Makefile.in.linkm~	2013-12-22 21:42:39.991496215 +0100
-+++ rasqal-0.9.31/src/Makefile.in	2013-12-22 21:43:23.998163460 +0100
-@@ -636,7 +636,7 @@ librasqal_la_SOURCES = rasqal_algebra.c
- nodist_librasqal_la_SOURCES = $(am__append_7)
+--- rasqal-0.9.33/src/Makefile.in.0000~	2017-06-26 01:30:02.023957249 +0200
++++ rasqal-0.9.33/src/Makefile.in	2017-06-26 01:30:42.025010857 +0200
+@@ -655,7 +655,7 @@ librasqal_la_SOURCES = rasqal_algebra.c
+ nodist_librasqal_la_SOURCES = $(am__append_8)
  librasqal_la_LDFLAGS = -version-info @RASQAL_LIBTOOL_VERSION@
  librasqal_la_LIBADD = @LTLIBOBJS@ @RASQAL_INTERNAL_LIBS@ \
 -	@RASQAL_EXTERNAL_LIBS@ $(MEM_LIBS) \
 +	@RASQAL_EXTERNAL_LIBS@ -lm $(MEM_LIBS) \
- 	$(top_builddir)/libsv/libsv.la $(am__append_9)
- librasqal_la_DEPENDENCIES = @LTLIBOBJS@ @RASQAL_INTERNAL_LIBS@ \
  	$(top_builddir)/libsv/libsv.la $(am__append_10)
+ librasqal_la_DEPENDENCIES = @LTLIBOBJS@ @RASQAL_INTERNAL_LIBS@ \
+ 	$(top_builddir)/libsv/libsv.la $(am__append_11)
