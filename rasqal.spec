@@ -45,19 +45,12 @@ Provides:	%{name}-devel = %{version}-%{release}
 %description -n %{devname}
 Libraries and includes files for developing programs based on %{name}.
 
-%track
-prog %{name} = {
-	url = http://librdf.org/rasqal/
-	regex = "Latest version: (__VER__) \("
-	version = %{version}
-}
-
 %prep
 %setup -q
 %apply_patches
 
 %build
-%configure2_5x --disable-static
+%configure --disable-static
 %make
 										
 %install
