@@ -12,7 +12,7 @@ Group:		Databases
 Version:	0.9.33
 Release:	5
 License:	LGPLv2
-Url:		http://librdf.org/rasqal/
+Url:		https://librdf.org/rasqal/
 Source0:	http://download.librdf.org/source/%{name}-%{version}.tar.gz
 Patch0:		rasqal-0.9.28-linkm.patch
 Patch1:		rasqal-0.9.33-clang-bug-33589.patch
