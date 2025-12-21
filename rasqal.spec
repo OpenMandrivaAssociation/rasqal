@@ -17,6 +17,11 @@ Source0:	http://download.librdf.org/source/%{name}-%{version}.tar.gz
 Patch0:		rasqal-0.9.28-linkm.patch
 Patch1:		rasqal-0.9.33-clang-bug-33589.patch
 # For the "rapper" tool
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	raptor2 >= 2.0.9
 BuildRequires:	mpfr-devel
 BuildRequires:	pkgconfig(raptor2) >= 2.0.9
